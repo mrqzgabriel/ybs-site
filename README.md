@@ -148,3 +148,12 @@ controlador dos dados, porque a LGPD pede que o responsável esteja identificado
 não exerce atividades privativas de advocacia nem de contabilidade. Isso protege a
 empresa e deve continuar assim enquanto o CNPJ tiver os CNAEs atuais (70.20-4/00,
 82.11-3/00 e 82.19-9/99).
+
+## Fotos usadas
+
+As imagens são de uso livre, obtidas pelo Openverse:
+
+- `site/img/hero.jpg`, "Office Desk", licença CC0 (domínio público ou equivalente, sem exigência de crédito).
+
+Para trocar por fotos do próprio negócio, basta substituir os arquivos dentro de
+`site/img/` mantendo os mesmos nomes. O formato usado no topo é 4 por 3.

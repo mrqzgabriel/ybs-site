@@ -256,7 +256,13 @@ strong { color: var(--ink); font-weight: 600; }
   mask-image: radial-gradient(70% 60% at 50% 40%, #000 20%, transparent 78%);
   -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 20%, transparent 78%);
 }
-.hero-inner { max-width: 880px; }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: clamp(28px, 5vw, 56px);
+  align-items: center;
+}
+.hero-text { max-width: 640px; }
 .hero h1 {
   color: var(--white);
   font-size: clamp(34px, 5.6vw, 62px);
@@ -668,6 +674,21 @@ strong { color: var(--ink); font-weight: 600; }
 /* usado quando a aba está em segundo plano, onde o navegador congela as
    transições e o conteúdo ficaria invisível */
 .sem-animacao .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+/* ---------------------------------------------------- foto do topo -- */
+.hero-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(4, 16, 28, .38);
+  border: none;
+}
+
+/* o nome da marca agora aparece sozinho, sem o quadrado de logo ao lado */
+.brand-text strong { letter-spacing: 0; }
 
 /* ---------------------------------------------------------- responsivo -- */
 @media (max-width: 960px) {
