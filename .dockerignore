@@ -1,0 +1,10 @@
+.git
+.gitignore
+.DS_Store
+**/.DS_Store
+README.md
+docker-compose.yml
+easypanel.md
+preview/
+*.log
+node_modules

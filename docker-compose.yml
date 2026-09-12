@@ -1,0 +1,9 @@
+# Apenas para teste local: docker compose up --build
+# Depois abra http://localhost:8080
+services:
+  site:
+    build: .
+    image: ybs-site:local
+    ports:
+      - "8080:80"
+    restart: unless-stopped
