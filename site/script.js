@@ -107,14 +107,26 @@
   var alvos = $$('.reveal');
   var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (semMovimento || !('IntersectionObserver' in window)) {
+  function revelaTudo() {
     alvos.forEach(function (el) { el.classList.add('is-in'); });
-  } else {
-    /* o que já está na primeira tela aparece sem depender do observer */
+  }
+
+  function revelaVisiveis() {
+    var altura = window.innerHeight || 0;
     alvos.forEach(function (el) {
+      if (el.classList.contains('is-in')) { return; }
       var r = el.getBoundingClientRect();
-      if (r.top < (window.innerHeight || 0)) { el.classList.add('is-in'); }
+      if (r.top < altura && r.bottom > 0) { el.classList.add('is-in'); }
     });
+  }
+
+  /* Aba em segundo plano congela o IntersectionObserver e o rolar suave do
+     navegador. Nesse caso, e sem IntersectionObserver ou com movimento
+     reduzido, o conteúdo aparece de uma vez, sem animação. */
+  if (semMovimento || !('IntersectionObserver' in window) || document.visibilityState === 'hidden') {
+    revelaTudo();
+  } else {
+    revelaVisiveis();
 
     var obs = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (entrada) {
@@ -127,6 +139,24 @@
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     alvos.forEach(function (el) { obs.observe(el); });
+
+    window.addEventListener('load', revelaVisiveis);
+    window.addEventListener('hashchange', function () { setTimeout(revelaVisiveis, 500); });
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') { revelaTudo(); }
+    });
+  }
+
+  /* Link aberto direto numa seção: com a aba em segundo plano o navegador não
+     executa o rolar suave, então a posição é ajustada na mão. */
+  if (location.hash && location.hash.length > 1) {
+    window.addEventListener('load', function () {
+      var destino = null;
+      try { destino = document.querySelector(location.hash); } catch (e) { destino = null; }
+      if (destino && window.pageYOffset < 10) {
+        destino.scrollIntoView({ behavior: 'auto', block: 'start' });
+      }
+    });
   }
 
   /* ------------------------------------------- seção ativa na navegação */
