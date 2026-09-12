@@ -58,7 +58,7 @@ existir, por exemplo `contato@ybsservicos.com.br`.
 
 ### b) Domínio
 
-O código usa `https://www.ybsservicos.com.br` como endereço no `canonical`, nas tags
+O código usa `https://ybsadministrativo.online` como endereço no `canonical`, nas tags
 de compartilhamento, no `robots.txt` e no `sitemap.xml`. Para trocar pelo domínio
 verdadeiro, rode na pasta do projeto:
 
