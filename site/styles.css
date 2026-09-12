@@ -450,32 +450,23 @@ strong { color: var(--ink); font-weight: 600; }
 .why dt .ico { color: var(--gold); }
 .why dd { margin: 0; font-size: 15px; color: #B0C1CE; padding-left: 32px; }
 
-/* ---------------------------------------------------- dados cadastrais -- */
-.official {
+/* ------------------------------------------------------- como trabalhamos -- */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+.pillar {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: clamp(26px, 4vw, 40px);
+  padding: 30px 28px;
   box-shadow: var(--shadow-sm);
+  transition: transform .28s var(--ease), box-shadow .28s var(--ease), border-color .28s var(--ease);
 }
-.official h3 { font-size: 21px; margin-bottom: 22px; }
-.official-grid {
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 20px 34px;
-}
-.official-grid > div { padding-bottom: 16px; border-bottom: 1px solid var(--line-2); }
-.official-grid dt {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 5px;
-}
-.official-grid dd { margin: 0; font-size: 15.5px; color: var(--ink); }
-.official-note { margin: 22px 0 0; font-size: 13px; color: var(--muted); }
+.pillar:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: #D8CFBB; }
+.pillar h3 { font-size: 21px; margin: 16px 0 10px; }
+.pillar p { font-size: 15.5px; margin: 0; }
 
 /* ------------------------------------------------------------------ faq -- */
 .faq { display: grid; gap: 12px; }

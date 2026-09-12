@@ -136,11 +136,13 @@ Para publicar uma alteração depois: faça o commit e o push no GitHub e clique
 
 Todo o texto está direto no `site/index.html`, em português, sem CMS. Para editar
 uma seção, procure pelo trecho e altere. As seções são, na ordem: topo, faixa de
-resumo, serviços, como funciona, para quem, a empresa com os dados cadastrais,
-dúvidas frequentes, contato e rodapé.
+resumo, serviços, como funciona, para quem, a empresa, dúvidas frequentes,
+contato e rodapé.
 
-Os dados cadastrais exibidos na seção "A empresa" foram tirados do cadastro público
-da Receita Federal em setembro de 2026.
+A página não exibe dados do cadastro do CNPJ (razão social completa com número,
+situação cadastral, CNAEs, data de abertura). Isso foi retirado de propósito. O
+número do CNPJ aparece apenas na política de privacidade, na identificação do
+controlador dos dados, porque a LGPD pede que o responsável esteja identificado.
 
 **Atenção ao posicionamento:** o site diz, na seção de dúvidas e no rodapé, que a YBS
 não exerce atividades privativas de advocacia nem de contabilidade. Isso protege a
