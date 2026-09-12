@@ -665,6 +665,9 @@ strong { color: var(--ink); font-weight: 600; }
   transition: opacity .6s var(--ease), transform .6s var(--ease);
 }
 .reveal.is-in { opacity: 1; transform: none; }
+/* usado quando a aba está em segundo plano, onde o navegador congela as
+   transições e o conteúdo ficaria invisível */
+.sem-animacao .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 
 /* ---------------------------------------------------------- responsivo -- */
 @media (max-width: 960px) {
