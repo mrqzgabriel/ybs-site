@@ -110,6 +110,12 @@
   if (semMovimento || !('IntersectionObserver' in window)) {
     alvos.forEach(function (el) { el.classList.add('is-in'); });
   } else {
+    /* o que já está na primeira tela aparece sem depender do observer */
+    alvos.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < (window.innerHeight || 0)) { el.classList.add('is-in'); }
+    });
+
     var obs = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (entrada) {
         if (!entrada.isIntersecting) { return; }
